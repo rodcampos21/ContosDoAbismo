@@ -1,0 +1,153 @@
+
+fx.png
+size: 2048, 512
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+debris
+  rotate: false
+  xy: 1526, 0
+  size: 62, 60
+  orig: 64, 64
+  offset: 1, 3
+  index: 0
+dot
+  rotate: false
+  xy: 1896, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 0
+geyser
+  rotate: false
+  xy: 0, 0
+  size: 96, 240
+  orig: 96, 240
+  offset: 0, 0
+  index: 0
+geyser
+  rotate: false
+  xy: 98, 0
+  size: 96, 240
+  orig: 96, 240
+  offset: 0, 0
+  index: 1
+geyser
+  rotate: false
+  xy: 196, 0
+  size: 96, 240
+  orig: 96, 240
+  offset: 0, 0
+  index: 2
+geyser
+  rotate: false
+  xy: 294, 0
+  size: 96, 240
+  orig: 96, 240
+  offset: 0, 0
+  index: 3
+glob
+  rotate: false
+  xy: 1030, 0
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: 0
+glow
+  rotate: false
+  xy: 392, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 0
+hitstar
+  rotate: false
+  xy: 1286, 0
+  size: 64, 64
+  orig: 68, 68
+  offset: 2, 2
+  index: 0
+pixel
+  rotate: false
+  xy: 1956, 0
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: 0
+ring
+  rotate: false
+  xy: 1862, 0
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 0
+shock
+  rotate: false
+  xy: 522, 0
+  size: 125, 82
+  orig: 132, 88
+  offset: 6, 6
+  index: 0
+shock
+  rotate: false
+  xy: 649, 0
+  size: 125, 82
+  orig: 132, 88
+  offset: 6, 6
+  index: 1
+shock
+  rotate: false
+  xy: 776, 0
+  size: 125, 81
+  orig: 132, 88
+  offset: 6, 6
+  index: 2
+shock
+  rotate: false
+  xy: 903, 0
+  size: 125, 72
+  orig: 132, 88
+  offset: 6, 6
+  index: 3
+spark
+  rotate: false
+  xy: 1914, 0
+  size: 40, 6
+  orig: 40, 8
+  offset: 0, 1
+  index: 0
+splash
+  rotate: false
+  xy: 1738, 0
+  size: 122, 52
+  orig: 180, 88
+  offset: 29, 2
+  index: 0
+splash
+  rotate: false
+  xy: 1590, 0
+  size: 146, 58
+  orig: 180, 88
+  offset: 17, 2
+  index: 1
+splash
+  rotate: false
+  xy: 1352, 0
+  size: 172, 62
+  orig: 180, 88
+  offset: 4, 2
+  index: 2
+splash
+  rotate: false
+  xy: 1104, 0
+  size: 180, 65
+  orig: 180, 88
+  offset: 0, 2
+  index: 3
+water
+  rotate: false
+  xy: 0, 242
+  size: 512, 47
+  orig: 512, 48
+  offset: 0, 0
+  index: 0
