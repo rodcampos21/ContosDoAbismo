@@ -1,0 +1,50 @@
+{
+ "near": {
+  "scale": 2,
+  "chunk": 1024,
+  "count": 12,
+  "fmt": "png",
+  "w": 12032,
+  "h": 1088
+ },
+ "tiles": {
+  "scale": 2,
+  "chunk": 1024,
+  "count": 12,
+  "fmt": "png",
+  "w": 12032,
+  "h": 1088
+ },
+ "far_nave": {
+  "scale": 2,
+  "chunk": 2048,
+  "count": 1,
+  "fmt": "jpg",
+  "w": 2048,
+  "h": 1088
+ },
+ "far_cistern": {
+  "scale": 2,
+  "chunk": 2048,
+  "count": 1,
+  "fmt": "jpg",
+  "w": 2048,
+  "h": 1088
+ },
+ "mid": {
+  "scale": 1.5,
+  "chunk": 1536,
+  "count": 1,
+  "fmt": "png",
+  "w": 1536,
+  "h": 816
+ },
+ "title": {
+  "scale": 2,
+  "chunk": 1920,
+  "count": 1,
+  "fmt": "jpg",
+  "w": 1920,
+  "h": 1088
+ }
+}
