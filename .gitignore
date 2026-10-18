@@ -1,0 +1,10 @@
+.gradle/
+build/
+web/war/
+web/gwt-unitCache/
+*.class
+.idea/
+*.iml
+local.properties
+tools/node_modules/
+tools/out/
