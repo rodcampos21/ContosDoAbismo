@@ -1,6 +1,7 @@
 package io.github.rodcampos21.contosdoabismo;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -131,6 +132,7 @@ public class Play {
       default: break;
     }
     if (in.pressed(Controls.PAUSE)) { state = State.PAUSED; return; }
+    debugWarp();
     if (fade > 0) fade -= dt * 1.5f;
     if (hitstop > 0) { hitstop -= dt; fx.update(dt * 0.2f); return; }
 
@@ -178,6 +180,16 @@ public class Play {
     float target = bossFight || boss.state == Boss.S.DYING ? level.arenaX0 : p.cx() - W / 2 + p.facing * 50;
     target = MathUtils.clamp(target, 0, level.W * Level.TS - W);
     camX = MathUtils.lerp(camX, target, Math.min(1, dt * (bossFight ? 3 : 6)));
+  }
+
+  /** Atalhos de teste (F2-F6): teleporta para cada seção da área. */
+  void debugWarp() {
+    int[] keys = { Input.Keys.F2, Input.Keys.F3, Input.Keys.F4, Input.Keys.F5, Input.Keys.F6 };
+    float[][] pos = { { 40 * Level.TS, 11 * Level.TS }, { 77 * Level.TS, 14 * Level.TS }, { 104 * Level.TS, 14 * Level.TS }, { 131 * Level.TS, 14 * Level.TS }, { 140 * Level.TS, 14 * Level.TS } };
+    for (int i = 0; i < keys.length; i++) if (Gdx.input.isKeyJustPressed(keys[i])) {
+      player.x = pos[i][0] - player.w / 2; player.y = pos[i][1] - player.h; player.vx = player.vy = 0;
+      camX = MathUtils.clamp(pos[i][0] - W / 2, 0, level.W * Level.TS - W);
+    }
   }
 
   static final Color COLD = new Color(0.48f, 0.82f, 1f, 1);

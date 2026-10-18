@@ -1,53 +1,49 @@
 # Contos do Abismo
 
-Metroidvania gótico para navegador, inspirado em *Bloodstained: Ritual of the Night*, com arte vetorial desenhada inteiramente em código (Canvas 2D). Nenhum arquivo de imagem ou som — tudo é gerado proceduralmente.
+Metroidvania gótico feito com **LibGDX** (Java), inspirado em *Bloodstained: Ritual of the Night*, com arte em estilo anime cel-shaded. Roda no navegador (GWT/WebGL) e no desktop.
 
-## Como jogar
+## Jogar
 
-Abra `index.html` em qualquer navegador moderno (ou ative o GitHub Pages neste repositório: **Settings → Pages → Deploy from branch → `main` / root**).
+- **Navegador:** a versão web é compilada automaticamente pelo GitHub Actions e publicada no branch `gh-pages`. Em **Settings → Pages**, escolha *Deploy from a branch* → `gh-pages` / `(root)`.
+- **Desktop:** `./gradlew lwjgl3:run` (Java 17+), ou baixe o `.jar` em `download/` no site publicado.
+- **Compilar a versão web localmente:** `./gradlew web:dist` → `web/build/dist/`.
 
-| Ação | Teclado | Gamepad |
-|---|---|---|
-| Andar | ← → ou A D | Analógico / D-pad |
-| Correr | segure SHIFT ou L | B / RB |
-| Pular (segure = mais alto) | ESPAÇO, Z ou ↑ | A |
-| Agachar | ↓ ou S | ↓ |
-| Atacar | X ou J | X / Y |
-| Descer de plataforma fina | ↓ + Pular | ↓ + A |
-| Pausar | ESC ou P | Start |
-| Som liga/desliga | M | — |
+| Ação | Teclado |
+|---|---|
+| Andar | ← → ou A D |
+| Correr | segure SHIFT ou L |
+| Pular (segure = mais alto) | ESPAÇO, Z ou ↑ |
+| Agachar | ↓ ou S |
+| Atacar | X ou J |
+| Descer de plataforma fina | ↓ + Pular |
+| Pausar | ESC ou P |
+| Som liga/desliga | M |
 
-## Conteúdo atual — Área Tutorial: A Cisterna Esquecida
+## Conteúdo — Área Tutorial: A Cisterna Esquecida
 
-1. **Capela do Despertar** — andar e correr
-2. **Corredor dos Saltos** — pulo, pulo variável e salto com corrida sobre um vão com estacas
-3. **Poço das Plataformas** — plataformas finas atravessáveis e descida
-4. **Fenda Estreita** — passagem só agachado
-5. **Galeria das Urnas** — combate, urnas com Fragmentos de Vida, morcegos e girinos rasteiros (que só se acerta agachado)
-6. **Vela de Repouso** — restaura a vida e vira ponto de retorno
-7. **Cisterna Esquecida** — chefe **Surubim Guerreiro**
-8. **Selo do Abismo** — fim do tutorial
+Capela do Despertar → Corredor dos Saltos → Poço das Plataformas → Fenda Estreita → Galeria das Urnas → Vela de Repouso → **Surubim Guerreiro** → Selo do Abismo.
 
-### Surubim Guerreiro
-Um bagre guerreiro de armadura enferrujada, espada serrilhada acorrentada e escudo com esqueleto de peixe.
-
-- **Fase 1:** golpe descendente (brilho na espada avisa), postura de escudo que bloqueia ataques frontais seguida de contra-ataque, investida com escudo que o deixa atordoado ao bater na parede (dano crítico ×1,5), salto esmagador que gera ondas pelo chão.
-- **Fase 2 (abaixo de 50% de vida):** golpes duplos, saltos em sequência, cuspe de lodo em arco, gêiseres que brotam do chão sob o jogador e destroços que caem do teto após a investida.
+O **Surubim Guerreiro** tem duas fases: golpe telegrafado, postura de escudo (bloqueia ataques frontais) com contra-ataque, investida que o atordoa na parede (dano crítico), salto com ondas de choque; abaixo de 50% de vida ganha golpes duplos, saltos em sequência, cuspe de lodo, gêiseres e destroços do teto.
 
 ## Estrutura
 
 ```
-index.html
-style.css
-js/util.js     utilitários, IK de dois ossos
-js/input.js    teclado + gamepad
-js/audio.js    efeitos e música sintetizados (WebAudio)
-js/level.js    mapa, colisão e cenário pré-renderizado
-js/art.js      desenhos vetoriais (Rain, Surubim, inimigos, objetos)
-js/fx.js       partículas, números de dano, tremor de tela
-js/player.js   física e estados do Rain
-js/enemies.js  morcegos, girinos, urnas, orbes de vida
-js/boss.js     IA e ataques do Surubim Guerreiro
-js/hud.js      interface e telas
-js/main.js     loop principal, câmera, combate
+core/      lógica do jogo (Java, compartilhada)
+lwjgl3/    versão desktop
+web/       versão navegador (GWT)
+assets/    atlas de sprites, camadas do cenário, fontes, sons (gerados)
+tools/     geradores de arte, áudio e mapa
+legacy-js/ protótipo anterior em JavaScript puro
 ```
+
+### Arte
+
+Todos os gráficos são desenhados por código em `tools/art/*.js` (Canvas 2D, técnicas de cel-shading: sombra dura, contorno, luz de borda) e renderizados em alta resolução com Chromium:
+
+```
+python3 tools/make_level.py      # mapa -> assets/data/level.json
+python3 tools/build_assets.py    # sprites, cenário e fontes -> assets/
+python3 tools/make_audio.py      # efeitos e músicas -> assets/sfx, assets/music
+```
+
+Para trocar a arte por desenhos próprios, basta substituir os quadros nos atlas (`assets/gfx/*.atlas`) mantendo os mesmos nomes.
