@@ -82,7 +82,7 @@ public class Hud {
     if (G.bossFight && b.state != Boss.S.DORMANT && b.state != Boss.S.DEAD && !(b.state == Boss.S.EMERGE && b.t < 2.1f)) {
       float a = b.state == Boss.S.EMERGE ? MathUtils.clamp((b.t - 2.1f) * 2, 0, 1) : b.state == Boss.S.DYING ? MathUtils.clamp(1 - (b.t - 2.8f), 0, 1) : 1;
       float w = 560, x = W / 2 - w / 2, y = H - 36;
-      small(g, g.fontTitle, "SURUBIM GUERREIRO", x, y - 26, Align.left, 0.3f, 0.94f, 0.89f, 0.78f, a);
+      small(g, g.fontTitle, "SURUBIM GUERREIRO", x, y - 32, Align.left, 0.3f, 0.94f, 0.89f, 0.78f, a);
       g.rect(x - 3, y - 3, w + 6, 16, 0.02f, 0.02f, 0.04f, a);
       g.rect(x, y, w * b.displayHp / b.maxHp, 10, 1f, 0.9f, 0.78f, 0.7f * a);
       float fw = w * b.hp / b.maxHp;

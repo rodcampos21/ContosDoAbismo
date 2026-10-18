@@ -98,7 +98,12 @@ def build_layers(pg):
             name = f'{kind}_{n}.{fmt}' if w > chunk else f'{kind}.{fmt}'
             path = os.path.join(OUT, 'gfx', name)
             raw = base64.b64decode(data.split(',', 1)[1])
-            if fmt == 'png':
+            if kind in ('far_nave', 'far_cistern', 'mid'):
+                # texturas com repetição precisam de dimensões potência de 2 no WebGL 1
+                im = Image.open(io.BytesIO(raw)).convert('RGBA').resize((2048, 1024), Image.LANCZOS)
+                if fmt == 'jpg': im.convert('RGB').save(path, quality=88)
+                else: im.save(path, optimize=True)
+            elif fmt == 'png':
                 save_png(Image.open(io.BytesIO(raw)).convert('RGBA'), path, quantize=kind in ('near', 'tiles'))
             else:
                 open(path, 'wb').write(raw)

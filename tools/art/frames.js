@@ -93,8 +93,8 @@ add('ui', 'portrait', 0, [-24, -24, 48, 48], 3, (ctx) => {
   ctx.fillStyle = lin(ctx, 0, -24, 0, 24, [[0, '#2c3a5c'], [1, '#0b0f1c']]); ctx.fill(c);
   ctx.save(); ctx.clip(c); ctx.translate(-2, 104); ctx.scale(1.25, 1.25); drawRainBust(ctx); ctx.restore();
 });
-add('ui', 'logo', 0, [-330, -70, 660, 130], 2, drawLogo);
-add('ui', 'bossname', 0, [-330, -80, 660, 110], 2, drawBossName);
+add('ui', 'logo', 0, [-470, -95, 940, 160], 2, drawLogo);
+add('ui', 'bossname', 0, [-470, -80, 940, 110], 2, drawBossName);
 
 // ---------- API do renderizador ----------
 window.listItems = () => ITEMS.map((it, i) => ({ i, atlas: it.atlas, name: it.name, index: it.index, x0: it.x0, y0: it.y0, w: it.w, h: it.h, scale: it.scale }));
@@ -161,7 +161,7 @@ function paintTitle(ctx) {
   ctx.restore();
   for (const [x, y] of [[808, 470], [836, 468]]) { glowDot(ctx, x, y, 16, 'rgba(255,50,30,0.9)', 1); ctx.fillStyle = '#ff5a3c'; ctx.beginPath(); ctx.ellipse(x, y, 4.5, 2.4, 0, 0, TAU); ctx.fill(); }
   // Rain heroico
-  ctx.save(); ctx.translate(250, 520); ctx.scale(3.6, 3.6);
+  ctx.save(); ctx.translate(215, 540); ctx.scale(3.3, 3.3);
   drawRain(ctx, { state: 'idle', t: 0.6, vx: -40 });
   ctx.restore();
   // vinheta

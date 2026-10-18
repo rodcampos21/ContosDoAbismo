@@ -6,14 +6,14 @@ filter: Linear, Linear
 repeat: none
 bossname
   rotate: false
-  xy: 0, 262
+  xy: 0, 322
   size: 1293, 160
-  orig: 1320, 220
-  offset: 12, 26
+  orig: 1880, 220
+  offset: 292, 26
   index: 0
 diamond
   rotate: false
-  xy: 1726, 0
+  xy: 1892, 0
   size: 20, 28
   orig: 24, 28
   offset: 2, 0
@@ -21,27 +21,27 @@ diamond
 logo
   rotate: false
   xy: 0, 0
-  size: 1320, 260
-  orig: 1320, 260
-  offset: 0, 0
+  size: 1486, 320
+  orig: 1880, 320
+  offset: 194, 0
   index: 0
 panel
   rotate: false
-  xy: 1466, 0
+  xy: 1632, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 0
 portrait
   rotate: false
-  xy: 1322, 0
+  xy: 1488, 0
   size: 142, 142
   orig: 144, 144
   offset: 1, 1
   index: 0
 ringframe
   rotate: false
-  xy: 1596, 0
+  xy: 1762, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
